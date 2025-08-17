@@ -1,0 +1,7 @@
+{
+  "seq_len": 64,
+  "stride": 16,
+  "num_sequences": 23168,
+  "tokenizer_name": "google/gemma-3-270m-it",
+  "num_tokens": 370742
+}

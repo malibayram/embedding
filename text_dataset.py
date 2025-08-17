@@ -18,6 +18,17 @@ class TextDataset(Dataset):
         self.stride = stride
         self.tokenizer_name = getattr(tokenizer, 'name_or_path', 'unknown')
         self.tokenizer = tokenizer
+        
+        # Debug information
+        print(f"TextDataset: {len(self.tokens)} tokens, seq_len={seq_len}, stride={stride}")
+        print(f"Calculated sequences: {len(self)}")
+        
+        if len(self) == 0:
+            print(f"WARNING: Dataset will be empty!")
+            print(f"Tokens: {len(self.tokens)}, Seq len: {seq_len}, Stride: {stride}")
+            print(f"Formula: max(0, ({len(self.tokens)} - {seq_len}) // {stride} + 1)")
+            print(f"Result: max(0, {len(self.tokens) - seq_len} // {stride} + 1)")
+            print(f"Final: max(0, {(len(self.tokens) - seq_len) // stride + 1})")
 
     def __len__(self):
         # Calculate number of sequences with stride

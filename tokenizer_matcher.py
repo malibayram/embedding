@@ -42,8 +42,13 @@ class TokenizerMatcher:
     
     embeddings = []
     for id in ids:
-      embedding = self.source_model.model.embed_tokens(torch.tensor([id], 
-                                                                   device=self.source_model.model.embed_tokens.weight.device))
+      # get model name from self.source_model
+      model_name = self.source_model.__class__.__name__
+      if model_name == "Gemma3ForCausalLM":
+        embedding = self.source_model.model.embed_tokens.weight[id]
+      else:
+        embedding = self.source_model.model.embed_tokens(
+          torch.tensor([id], device=self.source_model.model.embed_tokens.weight.device))
       embeddings.append(embedding)
     
     if adding_style == "mean":
@@ -59,11 +64,18 @@ class TokenizerMatcher:
     for key, value in matched_tokens.items():
       embedding = self.add_embeddings(value, adding_style)
       matched_embeddings[key] = embedding
+      
+      # Debug: Print some examples of token mappings
+      if key in [157, 30158]:  # The tokens you're checking
+        token_text = self.target_tokenizer.decode([key])
+        source_tokens = [self.source_tokenizer.decode([id]) for id in value]
+        print(f"Target token {key} ('{token_text}') mapped to source tokens: {value} ({source_tokens})")
+    
     return matched_embeddings
 
   def change_target_model_embeddings(self, matched_embeddings):
     with torch.no_grad():
-      target_device = self.target_model.model.embedder.weight.device
+      target_device = self.target_model.model.embed_tokens.weight.device
       changed_count = 0
       
       for key, value in matched_embeddings.items():
@@ -71,11 +83,9 @@ class TokenizerMatcher:
         if value.device != target_device:
           value = value.to(target_device)
         
-        # Check if the embedding is actually different before changing
-        current_embedding = self.target_model.model.embedder.weight[key].clone()
-        if not torch.allclose(current_embedding, value, atol=1e-6):
-          self.target_model.model.embedder.weight[key] = value
-          changed_count += 1
+        # Always update the embedding for matched tokens
+        self.target_model.model.embed_tokens.weight[key] = value
+        changed_count += 1
       
       print(f"Changed {changed_count} embeddings out of {len(matched_embeddings)} matched tokens")
       return changed_count

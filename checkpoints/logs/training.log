@@ -1,0 +1,44 @@
+2025-08-17 21:21:15,070 - gemma_trainer_claude - INFO - Using Apple Silicon GPU (MPS)
+2025-08-17 21:21:15,070 - gemma_trainer_claude - INFO - Mixed precision training enabled (MPS)
+2025-08-17 21:21:15,070 - gemma_trainer_claude - INFO - Model moved to mps
+2025-08-17 21:21:15,070 - gemma_trainer_claude - INFO - Total parameters: 303,054,336
+2025-08-17 21:21:15,070 - gemma_trainer_claude - INFO - Trainable parameters: 303,054,336
+2025-08-17 21:22:40,787 - gemma_trainer_claude - INFO - Using Apple Silicon GPU (MPS)
+2025-08-17 21:22:40,788 - gemma_trainer_claude - INFO - Mixed precision training enabled (MPS)
+2025-08-17 21:22:40,788 - gemma_trainer_claude - INFO - Model moved to mps
+2025-08-17 21:22:40,788 - gemma_trainer_claude - INFO - Total parameters: 303,054,336
+2025-08-17 21:22:40,788 - gemma_trainer_claude - INFO - Trainable parameters: 303,054,336
+2025-08-17 21:22:40,788 - gemma_trainer_claude - INFO - Optimizer: adamw
+2025-08-17 21:22:40,789 - gemma_trainer_claude - INFO - Scheduler: cosine_with_warmup
+2025-08-17 21:22:40,789 - gemma_trainer_claude - INFO - Total training steps: 1448
+2025-08-17 21:22:40,789 - gemma_trainer_claude - INFO - Starting training...
+2025-08-17 21:22:40,789 - gemma_trainer_claude - INFO - Training config: {'model_name': 'gemma3', 'learning_rate': 5e-05, 'min_learning_rate': 1e-06, 'weight_decay': 0.01, 'max_epochs': 1, 'max_steps': None, 'warmup_steps': 100, 'warmup_ratio': 0.1, 'seq_len': 64, 'batch_size': 4, 'gradient_accumulation_steps': 4, 'max_grad_norm': 1.0, 'logging_steps': 50, 'eval_steps': 200, 'save_steps': 500, 'save_total_limit': 3, 'output_dir': './checkpoints', 'logging_dir': './checkpoints/logs', 'device': 'mps', 'mixed_precision': True, 'compile_model': False, 'eval_dataset_ratio': 0.1, 'do_eval': True, 'optimizer_type': 'adamw', 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-08, 'scheduler_type': 'cosine_with_warmup'}
+2025-08-17 21:22:40,789 - gemma_trainer_claude - INFO - Epoch 1/1
+2025-08-17 21:23:09,604 - gemma_trainer_claude - INFO - Step 50: Loss=50.4785, LR=2.55e-05, Grad Norm=0.7953, Step Time=0.055s
+2025-08-17 21:23:37,504 - gemma_trainer_claude - INFO - Step 100: Loss=49.9678, LR=5.00e-05, Grad Norm=0.8949, Step Time=0.055s
+2025-08-17 21:24:05,693 - gemma_trainer_claude - INFO - Step 150: Loss=48.9416, LR=4.98e-05, Grad Norm=0.8614, Step Time=0.056s
+2025-08-17 21:24:33,821 - gemma_trainer_claude - INFO - Step 200: Loss=47.8995, LR=4.93e-05, Grad Norm=0.9658, Step Time=0.055s
+2025-08-17 21:25:02,636 - gemma_trainer_claude - INFO - Eval Step 200: Loss=11.7383, Perplexity=inf
+2025-08-17 21:25:06,851 - gemma_trainer_claude - INFO - Checkpoint saved to ./checkpoints/best_model
+2025-08-17 21:25:37,900 - gemma_trainer_claude - INFO - Step 250: Loss=46.7996, LR=4.85e-05, Grad Norm=1.0580, Step Time=0.060s
+2025-08-17 21:26:10,556 - gemma_trainer_claude - INFO - Step 300: Loss=45.7754, LR=4.74e-05, Grad Norm=1.0974, Step Time=0.063s
+2025-08-17 21:26:43,977 - gemma_trainer_claude - INFO - Step 350: Loss=44.6590, LR=4.60e-05, Grad Norm=0.9539, Step Time=0.066s
+2025-08-17 21:27:17,803 - gemma_trainer_claude - INFO - Step 400: Loss=43.8361, LR=4.43e-05, Grad Norm=0.9947, Step Time=0.066s
+2025-08-17 21:27:52,278 - gemma_trainer_claude - INFO - Eval Step 400: Loss=10.6809, Perplexity=inf
+2025-08-17 21:27:56,311 - gemma_trainer_claude - INFO - Checkpoint saved to ./checkpoints/best_model
+2025-08-17 21:28:30,320 - gemma_trainer_claude - INFO - Step 450: Loss=42.8694, LR=4.23e-05, Grad Norm=1.0219, Step Time=0.066s
+2025-08-17 21:29:02,841 - gemma_trainer_claude - INFO - Step 500: Loss=41.8589, LR=4.01e-05, Grad Norm=0.9475, Step Time=0.063s
+2025-08-17 21:29:07,506 - gemma_trainer_claude - INFO - Checkpoint saved to ./checkpoints/checkpoint-500
+2025-08-17 21:29:37,896 - gemma_trainer_claude - INFO - Step 550: Loss=41.1737, LR=3.77e-05, Grad Norm=0.9912, Step Time=0.059s
+2025-08-17 21:30:08,956 - gemma_trainer_claude - INFO - Step 600: Loss=40.5318, LR=3.52e-05, Grad Norm=0.9479, Step Time=0.063s
+2025-08-17 21:30:39,463 - gemma_trainer_claude - INFO - Eval Step 600: Loss=9.8519, Perplexity=18994.70
+2025-08-17 21:30:43,116 - gemma_trainer_claude - INFO - Checkpoint saved to ./checkpoints/best_model
+2025-08-17 21:31:11,476 - gemma_trainer_claude - INFO - Step 650: Loss=39.6807, LR=3.25e-05, Grad Norm=0.9081, Step Time=0.056s
+2025-08-17 21:31:42,129 - gemma_trainer_claude - INFO - Step 700: Loss=39.3428, LR=2.97e-05, Grad Norm=0.8614, Step Time=0.061s
+2025-08-17 21:32:12,719 - gemma_trainer_claude - INFO - Step 750: Loss=38.5738, LR=2.69e-05, Grad Norm=0.9463, Step Time=0.060s
+2025-08-17 21:32:43,482 - gemma_trainer_claude - INFO - Step 800: Loss=38.1944, LR=2.40e-05, Grad Norm=0.8640, Step Time=0.060s
+2025-08-17 21:33:13,783 - gemma_trainer_claude - INFO - Eval Step 800: Loss=9.3215, Perplexity=11175.34
+2025-08-17 21:33:17,577 - gemma_trainer_claude - INFO - Checkpoint saved to ./checkpoints/best_model
+2025-08-17 21:33:46,294 - gemma_trainer_claude - INFO - Step 850: Loss=37.9719, LR=2.12e-05, Grad Norm=0.8203, Step Time=0.058s
+2025-08-17 21:34:17,160 - gemma_trainer_claude - INFO - Step 900: Loss=37.4471, LR=1.84e-05, Grad Norm=0.8288, Step Time=0.063s
+2025-08-17 21:34:22,591 - gemma_trainer_claude - INFO - Checkpoint saved to ./checkpoints/interrupted_model
