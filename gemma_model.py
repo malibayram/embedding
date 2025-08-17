@@ -88,11 +88,12 @@ class GemmaConfig:
 def precompute_freqs_cis(dim: int,
                          end: int,
                          theta: float = 10000.0,
-                         rope_scaling_factor:int = 1) -> torch.Tensor:
+                         rope_scaling_factor:int = 1,
+                         device: str = "cpu") -> torch.Tensor:
     """Precomputes the frequency cis."""
-    freqs = 1.0 / (theta**(torch.arange(0, dim, 2)[:(dim // 2)].float() / dim))
+    freqs = 1.0 / (theta**(torch.arange(0, dim, 2, device=device)[:(dim // 2)].float() / dim))
     freqs = freqs/rope_scaling_factor
-    t = torch.arange(end, device=freqs.device)
+    t = torch.arange(end, device=device)
     freqs = torch.outer(t, freqs).float()
     freqs_cis = torch.polar(torch.ones_like(freqs), freqs)  # complex64
     return freqs_cis
@@ -401,9 +402,11 @@ class GemmaForCausalLM(nn.Module):
         self,
         config: GemmaConfig,
         tokenizer = None,
+        device: str = "cpu",
     ):
     super().__init__()
     self.config = config
+    self.device = device
     assert config.hidden_size % config.num_attention_heads == 0
 
     max_seq_len = config.max_position_embeddings
@@ -432,13 +435,17 @@ class GemmaForCausalLM(nn.Module):
                   attn_type, defaults[attn_type]
               )
       self._register_freqs_cis(name, head_dim, max_seq_len, theta=theta)
+    
+    # Move the entire model to the specified device
+    self.to(device)
 
   def _register_freqs_cis(
         self, name: str, head_dim: int, max_seq_len: int, theta: int = 10_000
     ):
-    self.register_buffer(
-            name, precompute_freqs_cis(head_dim, max_seq_len * 2, theta=theta)
-        )
+    # Use the model's device if available, otherwise default to CPU
+    device = getattr(self, 'device', 'cpu')
+    freqs_cis = precompute_freqs_cis(head_dim, max_seq_len * 2, theta=theta, device=device)
+    self.register_buffer(name, freqs_cis)
 
   @torch.no_grad()
   def forward(
@@ -522,7 +529,6 @@ class GemmaForCausalLM(nn.Module):
   def generate(
         self,
         prompts: Union[str, Sequence[str]],
-        device: Any = "cpu",
         output_len: int = 100,
         temperature: Union[float, None] = 1.0,
         top_p: float = 0.95,
@@ -547,43 +553,40 @@ class GemmaForCausalLM(nn.Module):
       size = (batch_size, max_seq_len, self.config.num_key_value_heads,
                     self.config.head_dim)
       dtype = self.config.get_dtype()
-      k_cache = torch.zeros(size=size, dtype=dtype, device=device)
-      v_cache = torch.zeros(size=size, dtype=dtype, device=device)
+      k_cache = torch.zeros(size=size, dtype=dtype, device=self.device)
+      v_cache = torch.zeros(size=size, dtype=dtype, device=self.device)
       kv_caches.append((k_cache, v_cache))
 
     # prepare inputs
     token_ids_tensor = torch.full((batch_size, max_seq_len),
-                                      self.tokenizer.pad_token_id, dtype=torch.int64)
+                                      self.tokenizer.pad_token_id, dtype=torch.int64, device=self.device)
     input_token_ids_tensor = torch.full((batch_size, min_prompt_len),
                                             self.tokenizer.pad_token_id,
-                                            dtype=torch.int64)
+                                            dtype=torch.int64, device=self.device)
     for i, p in enumerate(prompt_tokens):
-      token_ids_tensor[i, :len(p)] = torch.tensor(p)
+      token_ids_tensor[i, :len(p)] = torch.tensor(p, device=self.device)
       input_token_ids_tensor[i, :min_prompt_len] = torch.tensor(
-                p[:min_prompt_len])
-    token_ids_tensor = token_ids_tensor.to(device)
-    input_token_ids_tensor = input_token_ids_tensor.to(device)
+                p[:min_prompt_len], device=self.device)
     prompt_mask_tensor = token_ids_tensor != self.tokenizer.pad_token_id
     input_positions_tensor = torch.arange(0, min_prompt_len,
-                                              dtype=torch.int64).to(device)
+                                              dtype=torch.int64, device=self.device)
     mask_tensor = torch.full((1, 1, max_seq_len, max_seq_len),
-                                 -2.3819763e38).to(torch.float)
-    mask_tensor = torch.triu(mask_tensor, diagonal=1).to(device)
+                                 -2.3819763e38, dtype=torch.float, device=self.device)
+    mask_tensor = torch.triu(mask_tensor, diagonal=1)
     local_mask_tensor = mask_tensor + torch.tril(
-            torch.full((1, 1, max_seq_len, max_seq_len), -2.3819763e38, device=device),
+            torch.full((1, 1, max_seq_len, max_seq_len), -2.3819763e38, device=self.device),
             diagonal=-self.config.sliding_window_size,
         ) if self.config.sliding_window_size else None
     curr_mask_tensor = mask_tensor.index_select(2, input_positions_tensor)
     curr_local_mask_tensor = local_mask_tensor.index_select(
           2, input_positions_tensor
       ) if local_mask_tensor is not None else None
-    output_positions_tensor = torch.LongTensor([min_prompt_len - 1]).to(device)
-    temperatures_tensor = None if not temperature else torch.FloatTensor(
-            [temperature] * batch_size).to(device)
-    top_ps_tensor = torch.FloatTensor([top_p] * batch_size).to(device)
-    top_ks_tensor = torch.LongTensor([top_k] * batch_size).to(device)
-    output_index = torch.tensor(min_prompt_len, dtype=torch.int64).to(
-            device)
+    output_positions_tensor = torch.tensor([min_prompt_len - 1], dtype=torch.long, device=self.device)
+    temperatures_tensor = None if not temperature else torch.tensor(
+            [temperature] * batch_size, dtype=torch.float, device=self.device)
+    top_ps_tensor = torch.tensor([top_p] * batch_size, dtype=torch.float, device=self.device)
+    top_ks_tensor = torch.tensor([top_k] * batch_size, dtype=torch.long, device=self.device)
+    output_index = torch.tensor([min_prompt_len], dtype=torch.int64, device=self.device)
 
     # Prefill up to min_prompt_len tokens, then treat other prefill as
     # decode and ignore output.
@@ -606,19 +609,18 @@ class GemmaForCausalLM(nn.Module):
       curr_token_ids = token_ids_tensor.index_select(
                 1, output_index).squeeze(dim=1)
       output_token_ids = torch.where(curr_prompt_mask, curr_token_ids,
-                                           next_token_ids).unsqueeze(dim=1)
-      token_ids_tensor.index_copy_(1, output_index, output_token_ids)
+                                           next_token_ids)
+      token_ids_tensor.index_copy_(1, output_index, output_token_ids.unsqueeze(dim=1))
 
-      input_token_ids_tensor = output_token_ids
-      input_positions_tensor = output_index.unsqueeze(dim=-1)
+      input_token_ids_tensor = output_token_ids.unsqueeze(dim=1)
+      input_positions_tensor = output_index
       curr_mask_tensor = mask_tensor.index_select(2,
                                                         input_positions_tensor)
       curr_local_mask_tensor = local_mask_tensor.index_select(
                 2, input_positions_tensor
             ) if local_mask_tensor is not None else None
-      output_positions_tensor = torch.tensor(0, dtype=torch.int64).to(
-                device)
-      output_index = output_index + 1
+      output_positions_tensor = torch.tensor([0], dtype=torch.long, device=self.device)
+      output_index = torch.tensor([output_index.item() + 1], dtype=torch.int64, device=self.device)
 
     # Detokenization.
     token_ids = token_ids_tensor.tolist()
@@ -662,21 +664,21 @@ class GemmaForCausalLM(nn.Module):
              
              if hf_vocab_size == current_vocab_size:
                  # Same size, use as is
-                 new_state_dict['embedder.weight'] = value
+                 new_state_dict['embedder.weight'] = value.to(self.device)
              elif hf_vocab_size > current_vocab_size:
                  # HF model has larger vocab, truncate to current size
                  print(f"Truncating embedding from {hf_vocab_size} to {current_vocab_size} tokens")
-                 new_state_dict['embedder.weight'] = value[:current_vocab_size, :]
+                 new_state_dict['embedder.weight'] = value[:current_vocab_size, :].to(self.device)
              else:
                  # HF model has smaller vocab, pad with zeros
                  print(f"Padding embedding from {hf_vocab_size} to {current_vocab_size} tokens")
-                 padded_embedding = torch.zeros(current_vocab_size, hidden_size, dtype=value.dtype, device=value.device)
-                 padded_embedding[:hf_vocab_size, :] = value
+                 padded_embedding = torch.zeros(current_vocab_size, hidden_size, dtype=value.dtype, device=self.device)
+                 padded_embedding[:hf_vocab_size, :] = value.to(self.device)
                  new_state_dict['embedder.weight'] = padded_embedding
                  
          elif key == 'norm.weight':
              # Map final layer norm
-             new_state_dict['model.norm.weight'] = value
+             new_state_dict['model.norm.weight'] = value.to(self.device)
          elif key.startswith('layers.'):
              # Map layer weights
              if 'self_attn.q_norm' in key:
@@ -686,7 +688,7 @@ class GemmaForCausalLM(nn.Module):
              else:
                  new_key = 'model.' + key
              
-             new_state_dict[new_key] = value
+             new_state_dict[new_key] = value.to(self.device)
      
      # Load the mapped state dict
      missing_keys, unexpected_keys = self.load_state_dict(new_state_dict, strict=False)
@@ -712,6 +714,11 @@ class GemmaForCausalLM(nn.Module):
          raise FileNotFoundError(f"Model file not found at {model_path}")
      
      state_dict = torch.load(model_path, map_location='cpu')
+     
+     # Move all tensors to the correct device
+     for key in state_dict:
+         state_dict[key] = state_dict[key].to(self.device)
+     
      missing_keys, unexpected_keys = self.load_state_dict(state_dict, strict=False)
      
      if missing_keys:
@@ -720,6 +727,15 @@ class GemmaForCausalLM(nn.Module):
          print(f"Warning: Unexpected keys when loading model: {unexpected_keys}")
      
      print(f"Model loaded from {save_directory}")
+
+  def to_device(self, device: str):
+     """Move the model to a specific device."""
+     self.device = device
+     return self.to(device)
+
+  def get_device(self) -> str:
+     """Get the current device of the model."""
+     return self.device
 
 def get_config_for_270m(dtype: str) -> GemmaConfig:
   return GemmaConfig(
