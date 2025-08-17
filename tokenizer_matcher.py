@@ -63,7 +63,7 @@ class TokenizerMatcher:
 
   def change_target_model_embeddings(self, matched_embeddings):
     with torch.no_grad():
-      target_device = self.target_model.embedder.weight.device
+      target_device = self.target_model.model.embedder.weight.device
       changed_count = 0
       
       for key, value in matched_embeddings.items():
@@ -72,9 +72,9 @@ class TokenizerMatcher:
           value = value.to(target_device)
         
         # Check if the embedding is actually different before changing
-        current_embedding = self.target_model.embedder.weight[key].clone()
+        current_embedding = self.target_model.model.embedder.weight[key].clone()
         if not torch.allclose(current_embedding, value, atol=1e-6):
-          self.target_model.embedder.weight[key] = value
+          self.target_model.model.embedder.weight[key] = value
           changed_count += 1
       
       print(f"Changed {changed_count} embeddings out of {len(matched_embeddings)} matched tokens")
