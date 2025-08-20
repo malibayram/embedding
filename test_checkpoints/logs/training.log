@@ -111,3 +111,20 @@
 2025-08-17 21:48:33,875 - gemma_trainer_claude - INFO - Training config: {'model_name': 'gemma3', 'learning_rate': 5e-05, 'min_learning_rate': 1e-06, 'weight_decay': 0.01, 'max_epochs': 10, 'max_steps': None, 'warmup_steps': 100, 'warmup_ratio': 0.1, 'seq_len': 512, 'batch_size': 16, 'gradient_accumulation_steps': 2, 'max_grad_norm': 1.0, 'logging_steps': 50, 'eval_steps': 200, 'save_steps': 500, 'save_total_limit': 3, 'output_dir': './test_checkpoints', 'logging_dir': './test_checkpoints/logs', 'device': 'mps', 'mixed_precision': True, 'compile_model': False, 'eval_dataset_ratio': 0.1, 'do_eval': True, 'optimizer_type': 'adamw', 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-08, 'scheduler_type': 'cosine_with_warmup'}
 2025-08-17 21:48:33,876 - gemma_trainer_claude - INFO - Epoch 1/10
 2025-08-17 21:58:50,460 - gemma_trainer_claude - INFO - Checkpoint saved to ./test_checkpoints/interrupted_model
+2025-08-18 00:46:18,684 - gemma_trainer_claude - INFO - Using Apple Silicon GPU (MPS)
+2025-08-18 00:46:18,686 - gemma_trainer_claude - INFO - Mixed precision training enabled (MPS)
+2025-08-18 00:46:18,687 - gemma_trainer_claude - INFO - Model moved to mps
+2025-08-18 00:46:18,687 - gemma_trainer_claude - INFO - Total parameters: 121,297,536
+2025-08-18 00:46:18,687 - gemma_trainer_claude - INFO - Trainable parameters: 121,297,536
+2025-08-18 00:46:18,688 - gemma_trainer_claude - INFO - Optimizer: adamw
+2025-08-18 00:46:18,689 - gemma_trainer_claude - INFO - Scheduler: cosine_with_warmup
+2025-08-18 00:46:18,689 - gemma_trainer_claude - INFO - Total training steps: 1610
+2025-08-18 00:46:25,161 - gemma_trainer_claude - INFO - Starting training...
+2025-08-18 00:46:25,162 - gemma_trainer_claude - INFO - Training config: {'model_name': 'gemma3', 'learning_rate': 5e-05, 'min_learning_rate': 1e-06, 'weight_decay': 0.01, 'max_epochs': 10, 'max_steps': None, 'warmup_steps': 100, 'warmup_ratio': 0.1, 'seq_len': 512, 'batch_size': 12, 'gradient_accumulation_steps': 2, 'max_grad_norm': 1.0, 'logging_steps': 50, 'eval_steps': 200, 'save_steps': 500, 'save_total_limit': 3, 'output_dir': './test_checkpoints', 'logging_dir': './test_checkpoints/logs', 'device': 'mps', 'mixed_precision': True, 'compile_model': False, 'eval_dataset_ratio': 0.1, 'do_eval': True, 'optimizer_type': 'adamw', 'beta1': 0.9, 'beta2': 0.999, 'epsilon': 1e-08, 'scheduler_type': 'cosine_with_warmup'}
+2025-08-18 00:46:25,164 - gemma_trainer_claude - INFO - Epoch 1/10
+2025-08-18 00:48:32,039 - gemma_trainer_claude - INFO - Step 50: Loss=25.7405, LR=2.55e-05, Grad Norm=0.1435, Step Time=1.040s
+2025-08-18 00:50:42,888 - gemma_trainer_claude - INFO - Step 100: Loss=20.8031, LR=5.00e-05, Grad Norm=0.1373, Step Time=1.077s
+2025-08-18 00:53:07,759 - gemma_trainer_claude - INFO - Step 150: Loss=20.7853, LR=4.99e-05, Grad Norm=0.0944, Step Time=1.190s
+2025-08-18 00:53:38,109 - gemma_trainer_claude - INFO - Epoch 2/10
+2025-08-18 00:55:21,867 - gemma_trainer_claude - INFO - Step 200: Loss=20.9780, LR=4.95e-05, Grad Norm=0.0332, Step Time=1.091s
+2025-08-18 00:55:36,969 - gemma_trainer_claude - INFO - Checkpoint saved to ./test_checkpoints/interrupted_model

@@ -1,0 +1,668 @@
+[
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? görsel-işitselhıfzıssıhha",
+    "date": "2025-08-18 01:25:55"
+  },
+  {
+    "epoch": 0,
+    "loss": 3.377678632736206,
+    "text": "Merhaba, nasılsın? <uppercase>",
+    "date": "2025-08-18 01:26:45"
+  },
+  {
+    "epoch": 1,
+    "loss": 2.596569538116455,
+    "text": "Merhaba, nasılsın? iki<uppercase>",
+    "date": "2025-08-18 01:26:54"
+  },
+  {
+    "epoch": 2,
+    "loss": 2.602264165878296,
+    "text": "Merhaba, nasılsın? acaksam",
+    "date": "2025-08-18 01:27:03"
+  },
+  {
+    "epoch": 3,
+    "loss": 2.562741756439209,
+    "text": "Merhaba, nasılsın? julyayım",
+    "date": "2025-08-18 01:27:12"
+  },
+  {
+    "epoch": 0,
+    "loss": 2.54537034034729,
+    "text": "Merhaba, nasılsın? ileve",
+    "date": "2025-08-18 01:27:36"
+  },
+  {
+    "epoch": 1,
+    "loss": 2.537277936935425,
+    "text": "Merhaba, nasılsın? arassam",
+    "date": "2025-08-18 01:27:45"
+  },
+  {
+    "epoch": 2,
+    "loss": 2.5203704833984375,
+    "text": "Merhaba, nasılsın? takü",
+    "date": "2025-08-18 01:27:54"
+  },
+  {
+    "epoch": 3,
+    "loss": 2.509899616241455,
+    "text": "Merhaba, nasılsın? nanara",
+    "date": "2025-08-18 01:28:03"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? filmlen",
+    "date": "2025-08-18 01:28:12"
+  },
+  {
+    "epoch": 0,
+    "loss": 2.48960018157959,
+    "text": "Merhaba, nasılsın? latak",
+    "date": "2025-08-18 01:28:28"
+  },
+  {
+    "epoch": 1,
+    "loss": 2.453852653503418,
+    "text": "Merhaba, nasılsın? cak\n",
+    "date": "2025-08-18 01:28:37"
+  },
+  {
+    "epoch": 2,
+    "loss": 2.4330594539642334,
+    "text": "Merhaba, nasılsın? lentak",
+    "date": "2025-08-18 01:28:46"
+  },
+  {
+    "epoch": 0,
+    "loss": 2.4245617389678955,
+    "text": "Merhaba, nasılsın? yanol",
+    "date": "2025-08-18 01:29:11"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? 128079kok_temp_19790",
+    "date": "2025-08-18 01:29:44"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.167988300323486,
+    "text": "Merhaba, nasılsın? special_25special_28",
+    "date": "2025-08-18 01:29:58"
+  },
+  {
+    "epoch": 1,
+    "loss": 5.08635139465332,
+    "text": "Merhaba, nasılsın? special_53special_39",
+    "date": "2025-08-18 01:30:10"
+  },
+  {
+    "epoch": 2,
+    "loss": 5.061825752258301,
+    "text": "Merhaba, nasılsın? special_15special_40",
+    "date": "2025-08-18 01:30:23"
+  },
+  {
+    "epoch": 3,
+    "loss": 4.987488269805908,
+    "text": "Merhaba, nasılsın? special_47special_15",
+    "date": "2025-08-18 01:30:35"
+  },
+  {
+    "epoch": 0,
+    "loss": 4.9868340492248535,
+    "text": "Merhaba, nasılsın? kok_temp_19541kok_temp_19536",
+    "date": "2025-08-18 01:40:16"
+  },
+  {
+    "epoch": 1,
+    "loss": 4.945046901702881,
+    "text": "Merhaba, nasılsın? müteakipgöğüs",
+    "date": "2025-08-18 01:40:25"
+  },
+  {
+    "epoch": 2,
+    "loss": 4.555960178375244,
+    "text": "Merhaba, nasılsın? ▁ikiyüzlülükle",
+    "date": "2025-08-18 01:40:34"
+  },
+  {
+    "epoch": 3,
+    "loss": 4.83685827255249,
+    "text": "Merhaba, nasılsın? kızılağaçkarmakarışık",
+    "date": "2025-08-18 01:40:43"
+  },
+  {
+    "epoch": 0,
+    "loss": 9.905771255493164,
+    "text": "Merhaba, nasılsın? ▁▁",
+    "date": "2025-08-18 01:40:55"
+  },
+  {
+    "epoch": 1,
+    "loss": 3.5008981227874756,
+    "text": "Merhaba, nasılsın? ek_temp_20231ek_temp_20216",
+    "date": "2025-08-18 01:41:04"
+  },
+  {
+    "epoch": 2,
+    "loss": 2.684807300567627,
+    "text": "Merhaba, nasılsın? ılı",
+    "date": "2025-08-18 01:41:13"
+  },
+  {
+    "epoch": 3,
+    "loss": 2.581594467163086,
+    "text": "Merhaba, nasılsın? yaşaiçin",
+    "date": "2025-08-18 01:41:22"
+  },
+  {
+    "epoch": 0,
+    "loss": 2.5240297317504883,
+    "text": "Merhaba, nasılsın? sonuçına",
+    "date": "2025-08-18 01:43:45"
+  },
+  {
+    "epoch": 1,
+    "loss": 2.4407236576080322,
+    "text": "Merhaba, nasılsın? acağında",
+    "date": "2025-08-18 01:43:54"
+  },
+  {
+    "epoch": 2,
+    "loss": 2.3175575733184814,
+    "text": "Merhaba, nasılsın? ,ı",
+    "date": "2025-08-18 01:44:03"
+  },
+  {
+    "epoch": 3,
+    "loss": 2.370728015899658,
+    "text": "Merhaba, nasılsın? senaryodergi",
+    "date": "2025-08-18 01:44:12"
+  },
+  {
+    "epoch": 0,
+    "loss": 2.191448926925659,
+    "text": "Merhaba, nasılsın? sıan",
+    "date": "2025-08-18 01:44:51"
+  },
+  {
+    "epoch": 0,
+    "loss": 2.163773536682129,
+    "text": "Merhaba, nasılsın? makn",
+    "date": "2025-08-18 01:45:16"
+  },
+  {
+    "epoch": 1,
+    "loss": 2.2451088428497314,
+    "text": "Merhaba, nasılsın?  1912",
+    "date": "2025-08-18 01:45:24"
+  },
+  {
+    "epoch": 2,
+    "loss": 2.0285897254943848,
+    "text": "Merhaba, nasılsın? <uppercase>",
+    "date": "2025-08-18 01:45:33"
+  },
+  {
+    "epoch": 3,
+    "loss": 1.9848021268844604,
+    "text": "Merhaba, nasılsın? <uppercase>",
+    "date": "2025-08-18 01:45:43"
+  },
+  {
+    "epoch": 0,
+    "loss": 1.912386178970337,
+    "text": "Merhaba, nasılsın?  1965",
+    "date": "2025-08-18 01:46:34"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? ▁▁",
+    "date": "2025-08-18 01:46:47"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.201143741607666,
+    "text": "Merhaba, nasılsın? special_23special_28",
+    "date": "2025-08-18 01:47:02"
+  },
+  {
+    "epoch": 1,
+    "loss": 5.185458660125732,
+    "text": "Merhaba, nasılsın? special_43special_45",
+    "date": "2025-08-18 01:47:20"
+  },
+  {
+    "epoch": 2,
+    "loss": 5.1311492919921875,
+    "text": "Merhaba, nasılsın? special_12special_40",
+    "date": "2025-08-18 01:47:36"
+  },
+  {
+    "epoch": 3,
+    "loss": 5.088235378265381,
+    "text": "Merhaba, nasılsın? special_26special_43",
+    "date": "2025-08-18 01:47:52"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? ▁▁",
+    "date": "2025-08-18 01:54:11"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? special_34special_25",
+    "date": "2025-08-18 02:02:11"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? 1824ek_temp_20099",
+    "date": "2025-08-18 02:06:10"
+  },
+  {
+    "epoch": 0,
+    "loss": 13.661020278930664,
+    "text": "Merhaba, nasılsın? 2021009527",
+    "date": "2025-08-18 02:06:11"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.094212055206299,
+    "text": "Merhaba, nasılsın? special_25special_8",
+    "date": "2025-08-18 02:07:05"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.011240482330322,
+    "text": "Merhaba, nasılsın? special_37special_21",
+    "date": "2025-08-18 02:07:30"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? ▁▁",
+    "date": "2025-08-18 02:07:49"
+  },
+  {
+    "epoch": 0,
+    "loss": 13.661020278930664,
+    "text": "Merhaba, nasılsın? ▁▁",
+    "date": "2025-08-18 02:07:54"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.096490859985352,
+    "text": "Merhaba, nasılsın? special_39special_37",
+    "date": "2025-08-18 02:08:44"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.369535446166992,
+    "text": "Merhaba, nasılsın? special_18special_45",
+    "date": "2025-08-18 02:09:37"
+  },
+  {
+    "epoch": 0,
+    "loss": 4.705617427825928,
+    "text": "Merhaba, nasılsın? special_30special_10",
+    "date": "2025-08-18 02:10:36"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? 1828kok_temp_19995",
+    "date": "2025-08-18 02:11:03"
+  },
+  {
+    "epoch": 0,
+    "loss": 13.661020278930664,
+    "text": "Merhaba, nasılsın? 1822ek_temp_20082",
+    "date": "2025-08-18 02:11:07"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.0908331871032715,
+    "text": "Merhaba, nasılsın? special_21special_48",
+    "date": "2025-08-18 02:12:14"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? ▁▁",
+    "date": "2025-08-18 02:13:29"
+  },
+  {
+    "epoch": 0,
+    "loss": 13.661020278930664,
+    "text": "Merhaba, nasılsın? 1842ek_temp_20084",
+    "date": "2025-08-18 02:13:33"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.097481727600098,
+    "text": "Merhaba, nasılsın? special_34special_50",
+    "date": "2025-08-18 02:14:33"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? 1824ek_temp_20099",
+    "date": "2025-08-18 02:15:33"
+  },
+  {
+    "epoch": 0,
+    "loss": 13.661020278930664,
+    "text": "Merhaba, nasılsın? 1818ek_temp_20200",
+    "date": "2025-08-18 02:15:38"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? 800000ek_temp_20244",
+    "date": "2025-08-18 02:16:51"
+  },
+  {
+    "epoch": 0,
+    "loss": 13.661020278930664,
+    "text": "Merhaba, nasılsın? 1851ek_temp_20214",
+    "date": "2025-08-18 02:17:24"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.09692907333374,
+    "text": "Merhaba, nasılsın? special_29special_18",
+    "date": "2025-08-18 02:18:11"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.085801124572754,
+    "text": "Merhaba, nasılsın? special_37special_42",
+    "date": "2025-08-18 02:18:53"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? 1112ek_temp_20140",
+    "date": "2025-08-18 02:19:50"
+  },
+  {
+    "epoch": 0,
+    "loss": 13.661020278930664,
+    "text": "Merhaba, nasılsın? 1882▁",
+    "date": "2025-08-18 02:19:56"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.095412731170654,
+    "text": "Merhaba, nasılsın? special_20special_30",
+    "date": "2025-08-18 02:24:13"
+  },
+  {
+    "epoch": 0,
+    "loss": 3.8516860008239746,
+    "text": "Merhaba, nasılsın? sağlatekrar",
+    "date": "2025-08-18 02:28:52"
+  },
+  {
+    "epoch": 0,
+    "loss": 3.1862852573394775,
+    "text": "Merhaba, nasılsın? toplayoğun",
+    "date": "2025-08-18 02:33:19"
+  },
+  {
+    "epoch": 0,
+    "loss": 2.9000139236450195,
+    "text": "Merhaba, nasılsın? lamdurum",
+    "date": "2025-08-18 02:37:42"
+  },
+  {
+    "epoch": 0,
+    "loss": 3.091146469116211,
+    "text": "Merhaba, nasılsın? coiş",
+    "date": "2025-08-18 02:42:05"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? 800000ek_temp_20202",
+    "date": "2025-08-18 04:50:10"
+  },
+  {
+    "epoch": 0,
+    "loss": 13.661014556884766,
+    "text": "Merhaba, nasılsın? 1882kok_temp_19998",
+    "date": "2025-08-18 04:50:14"
+  },
+  {
+    "epoch": 0,
+    "loss": 5.0982561111450195,
+    "text": "Merhaba, nasılsın? ▁u▁special_43",
+    "date": "2025-08-18 04:55:24"
+  },
+  {
+    "epoch": 0,
+    "loss": 3.8265419006347656,
+    "text": "Merhaba, nasılsın? tümuygula",
+    "date": "2025-08-18 05:01:17"
+  },
+  {
+    "epoch": 0,
+    "loss": 3.1882543563842773,
+    "text": "Merhaba, nasılsın? artkes",
+    "date": "2025-08-18 05:07:26"
+  },
+  {
+    "epoch": 0,
+    "loss": 2.7428975105285645,
+    "text": "Merhaba, nasılsın? lisansfun",
+    "date": "2025-08-18 05:13:37"
+  },
+  {
+    "epoch": 0,
+    "loss": 2.799605369567871,
+    "text": "Merhaba, nasılsın? göredağıt",
+    "date": "2025-08-18 05:19:50"
+  },
+  {
+    "epoch": 1,
+    "loss": 7.222554445266724,
+    "text": "Merhaba, nasılsın? baba\n",
+    "date": "2025-08-18 05:26:00"
+  },
+  {
+    "epoch": 1,
+    "loss": 1.9900115728378296,
+    "text": "Merhaba, nasılsın? lar.",
+    "date": "2025-08-18 05:32:13"
+  },
+  {
+    "epoch": 1,
+    "loss": 1.997022032737732,
+    "text": "Merhaba, nasılsın?  sine",
+    "date": "2025-08-18 05:38:25"
+  },
+  {
+    "epoch": 1,
+    "loss": 1.6777052879333496,
+    "text": "Merhaba, nasılsın? ara<uppercase>",
+    "date": "2025-08-18 05:44:36"
+  },
+  {
+    "epoch": 1,
+    "loss": 1.3845235109329224,
+    "text": "Merhaba, nasılsın? ara ",
+    "date": "2025-08-18 05:50:52"
+  },
+  {
+    "epoch": 1,
+    "loss": 1.3589998483657837,
+    "text": "Merhaba, nasılsın?  i",
+    "date": "2025-08-18 05:57:04"
+  },
+  {
+    "epoch": 2,
+    "loss": 4.975148558616638,
+    "text": "Merhaba, nasılsın? i\n",
+    "date": "2025-08-18 06:03:12"
+  },
+  {
+    "epoch": 2,
+    "loss": 1.2588629722595215,
+    "text": "Merhaba, nasılsın?  ında",
+    "date": "2025-08-18 06:09:24"
+  },
+  {
+    "epoch": 2,
+    "loss": 1.295117735862732,
+    "text": "Merhaba, nasılsın? eçalış",
+    "date": "2025-08-18 06:15:39"
+  },
+  {
+    "epoch": 2,
+    "loss": 1.0974109172821045,
+    "text": "Merhaba, nasılsın? dı ",
+    "date": "2025-08-18 06:21:53"
+  },
+  {
+    "epoch": 2,
+    "loss": 0.9883573651313782,
+    "text": "Merhaba, nasılsın? mış.",
+    "date": "2025-08-18 06:28:13"
+  },
+  {
+    "epoch": 2,
+    "loss": 0.9357924461364746,
+    "text": "Merhaba, nasılsın? s ",
+    "date": "2025-08-18 06:34:35"
+  },
+  {
+    "epoch": 3,
+    "loss": 5.265961408615112,
+    "text": "Merhaba, nasılsın? lar ",
+    "date": "2025-08-18 06:41:00"
+  },
+  {
+    "epoch": 3,
+    "loss": 0.8785630464553833,
+    "text": "Merhaba, nasılsın? acak.",
+    "date": "2025-08-18 06:47:25"
+  },
+  {
+    "epoch": 3,
+    "loss": 0.9057771563529968,
+    "text": "Merhaba, nasılsın? edeğiş",
+    "date": "2025-08-18 06:56:37"
+  },
+  {
+    "epoch": 3,
+    "loss": 0.8533040285110474,
+    "text": "Merhaba, nasılsın? ıol",
+    "date": "2025-08-18 07:14:50"
+  },
+  {
+    "epoch": 3,
+    "loss": 2.5548012256622314,
+    "text": "Merhaba, nasılsın? ggenel",
+    "date": "2025-08-18 07:33:18"
+  },
+  {
+    "epoch": 3,
+    "loss": 2.056685209274292,
+    "text": "Merhaba, nasılsın?  lama",
+    "date": "2025-08-18 07:45:28"
+  },
+  {
+    "epoch": 4,
+    "loss": 5.9152679443359375,
+    "text": "Merhaba, nasılsın?  black",
+    "date": "2025-08-18 07:59:11"
+  },
+  {
+    "epoch": 4,
+    "loss": 7.04282283782959,
+    "text": "Merhaba, nasılsın? cisimkitle",
+    "date": "2025-08-18 08:17:41"
+  },
+  {
+    "epoch": 4,
+    "loss": 5.263099670410156,
+    "text": "Merhaba, nasılsın? yeterhariç",
+    "date": "2025-08-18 08:36:01"
+  },
+  {
+    "epoch": 4,
+    "loss": 5.561315059661865,
+    "text": "Merhaba, nasılsın? butonposta",
+    "date": "2025-08-18 08:49:45"
+  },
+  {
+    "epoch": 4,
+    "loss": 5.8659186363220215,
+    "text": "Merhaba, nasılsın? 1981şiir",
+    "date": "2025-08-18 09:03:51"
+  },
+  {
+    "epoch": 4,
+    "loss": 5.5450849533081055,
+    "text": "Merhaba, nasılsın? dürüfransız",
+    "date": "2025-08-18 09:22:18"
+  },
+  {
+    "epoch": 5,
+    "loss": 13.325980186462402,
+    "text": "Merhaba, nasılsın? parçavu",
+    "date": "2025-08-18 09:39:27"
+  },
+  {
+    "epoch": 5,
+    "loss": 5.687140941619873,
+    "text": "Merhaba, nasılsın? sorumlutri",
+    "date": "2025-08-18 09:54:09"
+  },
+  {
+    "epoch": 5,
+    "loss": 5.555105209350586,
+    "text": "Merhaba, nasılsın? aut&",
+    "date": "2025-08-18 10:08:55"
+  },
+  {
+    "epoch": 5,
+    "loss": 5.767518043518066,
+    "text": "Merhaba, nasılsın? pm65",
+    "date": "2025-08-18 10:23:37"
+  },
+  {
+    "epoch": 5,
+    "loss": 5.903146266937256,
+    "text": "Merhaba, nasılsın? copre",
+    "date": "2025-08-18 10:38:21"
+  },
+  {
+    "epoch": 5,
+    "loss": 5.2162394523620605,
+    "text": "Merhaba, nasılsın? kartprensip",
+    "date": "2025-08-18 10:53:06"
+  },
+  {
+    "epoch": 6,
+    "loss": 10.714393138885498,
+    "text": "Merhaba, nasılsın? fortali",
+    "date": "2025-08-18 11:08:22"
+  },
+  {
+    "epoch": 0,
+    "loss": 0,
+    "text": "Merhaba, nasılsın? a\n",
+    "date": "2025-08-20 13:54:08"
+  }
+]

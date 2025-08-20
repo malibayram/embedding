@@ -311,23 +311,13 @@ class Gemma3Trainer:
         input_ids, labels = batch
         input_ids = input_ids.to(self.config.device)
         labels = labels.to(self.config.device)
-        
-        # Handle mixed precision for different devices
+        outputs = self.model(input_ids, labels=labels)
+
+        loss = outputs['loss'] / self.config.gradient_accumulation_steps
+
         if self.config.mixed_precision and self.config.device == "cuda":
-            with torch.cuda.amp.autocast():
-                outputs = self.model(input_ids, labels=labels)
-                loss = outputs['loss'] / self.config.gradient_accumulation_steps
-            
             self.scaler.scale(loss).backward()
-        elif self.config.mixed_precision and self.config.device == "mps":
-            with torch.autocast(device_type='mps', dtype=torch.float16):
-                outputs = self.model(input_ids, labels=labels)
-                loss = outputs['loss'] / self.config.gradient_accumulation_steps
-            
-            loss.backward()
         else:
-            outputs = self.model(input_ids, labels=labels)
-            loss = outputs['loss'] / self.config.gradient_accumulation_steps
             loss.backward()
         
         step_time = time.time() - start_time
